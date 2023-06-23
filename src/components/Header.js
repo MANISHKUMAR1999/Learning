@@ -1,7 +1,8 @@
- import { useState } from "react";
+ import { useState,useContext } from "react";
  import Logo from "../assets/image/food.jpg"
  import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
+import UserContext from "../utils/UserContext";
 const loggedInuser = ()=>{
   return true;
 }
@@ -16,6 +17,8 @@ export const Title = () => (
 const Header = () => {
 
   const[isLoggedIn,setIsLoggedIn] = useState(false)
+
+  const {User} = useContext(UserContext)
 
   const isOnline = useOnline()
   return (
@@ -36,6 +39,8 @@ const Header = () => {
        
       </div>
       <h1>{isOnline ? "online": <h1>Last seen today : {new Date().getHours()+":"+new Date().getMinutes()}</h1>}</h1>
+
+     <h1 className="p-10 font-bold text-red-900">{User.name}</h1> 
      
 
       {

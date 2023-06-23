@@ -1,7 +1,7 @@
 //import RestaurantCard from "./RestaurantCard";
 import RestaurantCard from "./RestraurantCard";
 
-import { useEffect, useState } from "react"; /* This is named export */
+import { useEffect, useState,useContext } from "react"; /* This is named export */
 //import Shimmer from "/Shimmer"; /* This is default export */
 import Shimmer from "./shimmer";
 //import { swiggy_api_URL } from "./constants";
@@ -11,6 +11,9 @@ import { Link } from "react-router-dom";
 
 import { filterData } from "../utils/helper";
 import useOnline from "../utils/useOnline";
+import UserContext from "../utils/UserContext";
+
+//import { useContext } from "react";
 
 // Body Component for body section: It contain all restaurant cards
 const Body = ({user}) => {
@@ -19,6 +22,8 @@ const Body = ({user}) => {
   const [allRestaurants, setAllRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
+
+  const {User,setUserInfo} = useContext(UserContext)
 
   // use useEffect for one time call getRestaurants using empty dependency array
   useEffect(() => {
@@ -86,6 +91,19 @@ const Body = ({user}) => {
         >
           Search
         </button>
+        <input value={User.name} onChange={(e)=>{setUserInfo({
+         ...User,
+         name:e.target.value
+        })
+
+        }}></input>
+
+<input value={User.email} onChange={(e)=>{setUserInfo({
+        ...User,
+          email:e.target.value
+        })
+
+        }}></input>
         </div>
       </div>
       {errorMessage && <div className="error-container">{errorMessage}</div>}

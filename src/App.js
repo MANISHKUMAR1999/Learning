@@ -15,6 +15,7 @@ import Contact from "./components/Contact";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Profile from "./components/Profile";
 import Shimmer from "./components/shimmer";
+import UserContext from "./utils/UserContext";
 //import Instamart from "./components/Instamart";
 //import FoodFireLogo from "../Images/Food Fire Logo.png";
 
@@ -55,16 +56,31 @@ const Instamart = lazy(()=>import("./components/Instamart"))
 // AppLayout component to show: Header, Body, Footer
 const AppLayout = () => {
 
-  const [user,setUser]  = useState({
-    name:"Namaste React",
+  // const [user,setUser]  = useState({
+  //   name:"Namaste React",
+  //   email:"support@dev.com"
+  // })
+
+
+  const [userInfo,setUserInfo]  = useState({
+    name:"Manish Kumar",
     email:"support@dev.com"
   })
   return (
     <React.Fragment>
+      <UserContext.Provider 
+      value = {{
+        User:userInfo,
+        setUserInfo:setUserInfo
+      }}
+      >
+
+     
       <Header />
       <Outlet/>
      
       <Footer />
+      </UserContext.Provider>
     </React.Fragment>
   );
 };
