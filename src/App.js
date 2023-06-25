@@ -16,6 +16,9 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import Profile from "./components/Profile";
 import Shimmer from "./components/shimmer";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import store from "./utils/store";
+import Cart from "./components/Cart";
 //import Instamart from "./components/Instamart";
 //import FoodFireLogo from "../Images/Food Fire Logo.png";
 
@@ -67,7 +70,7 @@ const AppLayout = () => {
     email:"support@dev.com"
   })
   return (
-    <React.Fragment>
+    <Provider store = {store}>
       <UserContext.Provider 
       value = {{
         User:userInfo,
@@ -81,7 +84,7 @@ const AppLayout = () => {
      
       <Footer />
       </UserContext.Provider>
-    </React.Fragment>
+    </Provider>
   );
 };
 
@@ -121,6 +124,9 @@ const appRouter = createBrowserRouter(
         {
           path:'/instamart',
           element: <Suspense fallback={<Shimmer/>}> <Instamart/></Suspense>
+        },{
+          path:"/cart",
+          element:<Cart/>
         }
       ]
      
