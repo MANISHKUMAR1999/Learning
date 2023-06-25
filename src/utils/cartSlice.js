@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { current } from 'immer';
 
 const cartSlice = createSlice({
   name:'cart',
@@ -14,11 +15,9 @@ const cartSlice = createSlice({
     removeItem: (state, action) =>{
 
       //console.log(id)
-     const filteredCart = state.items.filter((item)=>item.id !== action.payload)
 
-     console.log(filteredCart,"byyyy")
-
-      //state.items.filter((item,index)=> item.id !== action.payload)
+     // console.log(action.payload.id,"yyyyyyyyyyyyyyyyyy")
+     const filteredCart = state.items.filter((item)=>item.id !== action.payload.id)
 
     state.items = filteredCart
 
