@@ -42,13 +42,13 @@ const Header = () => {
         </ul>
        
       </div>
-      <h1>{isOnline ? "online": <h1>Last seen today : {new Date().getHours()+":"+new Date().getMinutes()}</h1>}</h1>
+      <h1 className="mt-8 font-bold">{isOnline ? "online": <h1>Last seen today : {new Date().getHours()+":"+new Date().getMinutes()}</h1>}</h1>
 
      <h1 className="p-10 font-bold text-red-900">{User.name}</h1> 
      
 
       {
-          (isLoggedIn) ?<button onClick={()=>setIsLoggedIn(false)}>Logout</button>:<button onClick={()=>setIsLoggedIn(true)}>Login</button>
+          (isLoggedIn) ?<button onClick={()=>setIsLoggedIn(false)}>Logout</button>:<button  onClick={()=>setIsLoggedIn(true)}>Login</button>
  
         }
         

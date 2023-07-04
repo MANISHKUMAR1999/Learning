@@ -66,8 +66,8 @@ const AppLayout = () => {
 
 
   const [userInfo,setUserInfo]  = useState({
-    name:"Manish Kumar",
-    email:"support@dev.com"
+    name:"Manish",
+    email:"Test@gmail.com"
   })
   return (
     <Provider store = {store}>
