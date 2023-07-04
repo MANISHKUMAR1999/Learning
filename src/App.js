@@ -99,7 +99,7 @@ const appRouter = createBrowserRouter(
           path:'/',
           element:<Body user={{
             name:"Namaste React",
-            email:"support@dev.com"
+            email:"test@gmail.com"
           }}/>
         },
         {

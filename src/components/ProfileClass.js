@@ -28,7 +28,7 @@ class Profile extends React.Component{
   async componentDidMount(){ // Mount called after first render
     // Best place for API call
     console.log("ComponentDidMount")
-    const data = await fetch("https://api.github.com/users/akshaymarch7")//https://api.github.com/users/MANISHKUMAR1999
+    const data = await fetch("https://api.github.com/users/MANISHKUMAR1999")//https://api.github.com/users/MANISHKUMAR1999
   const json = await data.json();
   this.setState({
     userInfo:json

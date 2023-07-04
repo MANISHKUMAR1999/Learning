@@ -55,7 +55,7 @@ class About extends Component{
         </h1>
         <UserContext.Consumer>{({User})=><h4 className="font-bold text-xl p-10">{User.name} -{User.email} </h4>}</UserContext.Consumer>
 
-        <p>THis is the Namaste React Live Course chap07-Finding the path</p>
+        <p>THis is the About Page</p>
         <ProfileFunctionalComponent name={"manish"}/>
         <Profile name={"manish class"}/>
   
